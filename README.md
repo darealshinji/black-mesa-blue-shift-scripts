@@ -5,14 +5,11 @@ These scripts can be launched anywhere, you don't need to copy them into a speci
 __launch_bshift.sh__: Use this script to start the game.
 A symbolic link to the mod directory will automatically be generated.
 
-__extract_sound.sh__:
+__fix_sound.sh__:
 This script will extract the sound files from the vpk
 archives, since there are issues with some sound files
 not being loaded correctly from the vpk archive files.
 The command `pip` is expected to be installed (`apt install pip`).
-
-__revert_sound_extract.sh__:
-Deletes extracted sound files and restores old sound vpk files from backup folder.
 
 __create_desktop_icon.sh__:
 Create an icon on your desktop to start the game.

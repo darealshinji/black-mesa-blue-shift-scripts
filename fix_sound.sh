@@ -20,21 +20,8 @@ which vpk > /dev/null
 # move into mod directory
 cd "$moddir"
 
-# revert backup
-if [ -d "BACKUP" ]; then
-    rm -rf sound
-    mv BACKUP/* .
-    rmdir BACKUP
-fi
-
 # extract sound
-rm -rf OUT
+rm -rf OUT sound
 vpk -x OUT bshift_sound_dir.vpk
-mkdir -p sound
-mv -f OUT/sound/* sound
-
-# move sound vpk files
-rm -rf OUT BACKUP
-mkdir -p BACKUP
-mv bshift_sound_*.vpk BACKUP
-rm -f bshift_sound.vpk.sound.cache
+mv OUT/sound .
+rm -rf OUT
