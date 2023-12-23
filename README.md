@@ -10,11 +10,15 @@ This script will extract the sound files from the vpk
 archives, since there are issues with some sound files
 not being loaded correctly from the vpk archive files.
 It will also fix the HUD scanlines.
+
 The command `pip` is expected to be installed (`apt install pip`).
+
+To revert these fixes delete the folder `bshift/sound` and the
+file `bshift/materials/dev/hud_scanline.vtf`.
 
 __create_desktop_icon.sh__:
 Create an icon on your desktop to start the game.
 
-Note: Black Mesa and the workshop data are expected to be inside sub-directories of
-`$HOME/.steam/debian-installation/steamapps`.
+Note: Black Mesa and the workshop data are expected to be inside
+sub-directories of `$HOME/.steam/root/steamapps`.
 You need to modify the scripts if your installation paths differ.

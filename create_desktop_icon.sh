@@ -2,24 +2,33 @@
 set -e
 set -x
 
-cd "$(dirname "$0")"
-
-steamdir="$HOME/.steam/debian-installation"
-moddir="$steamdir/steamapps/workshop/content/362890/2424633574"
+scriptdir="$(cd "$(dirname "$0")" && echo "$PWD")"
+moddir="$HOME/.steam/root/steamapps/workshop/content/362890/2424633574"
 
 # get $XDG_DESKTOP_DIR
-. "$HOME/.config/user-dirs.dirs"
+desktop="$(xdg-user-dir DESKTOP)"
+
+if [ "x$desktop" = "x" ]; then
+    . "$HOME/.config/user-dirs.dirs"
+    desktop="$XDG_DESKTOP_DIR"
+fi
+
+if [ "x$desktop" = "x" ]; then
+    set +x
+    echo "cannot find out path to desktop (XDG_DESKTOP_DIR)"
+    exit 1
+fi
 
 # create .desktop file
-cat <<EOF> "$XDG_DESKTOP_DIR/bshift.desktop"
+cat <<EOF> "$desktop/bshift.desktop"
 [Desktop Entry]
 Type=Application
 Name=Black Mesa: Blue Shift
-Exec=$PWD/launch_bshift.sh
+Exec="$scriptdir/launch_bshift.sh"
 Icon=$moddir/bshift_icon.ico
 Terminal=1
 StartupNotify=true
 EOF
 
 # make executable
-chmod a+x "$XDG_DESKTOP_DIR/bshift.desktop"
+chmod a+x "$desktop/bshift.desktop"

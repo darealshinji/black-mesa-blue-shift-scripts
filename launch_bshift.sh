@@ -1,6 +1,6 @@
 #!/bin/sh
 
-steamdir="$HOME/.steam/debian-installation"
+steamdir="$HOME/.steam/root"
 bmdir="$steamdir/steamapps/common/Black Mesa"
 moddir="$steamdir/steamapps/workshop/content/362890/2424633574/bshift"
 
